@@ -7,7 +7,9 @@
 
 {% block body %}
 <div class="content">
-    <h1 class="name">Lego Image Converter</h1>
+    <div class="header">
+        <h1 class="name">LEGO IMAGE CONVERTER</h1>
+    </div>
     <h2 style="text-align: center">Upload an image to convert it to a Lego mosaic</h2>
     <div class="main">
         <div class="image-holder">
@@ -18,13 +20,13 @@
         </div>
         <div class="central">
             <p class="text">
-                Legofied Image Here
+                Your Legofied Image Here
             </p>
             <br>
             <div class="submission">
                 <form style="text-align: center;" action="/" method="POST">
                     <input type="file" name="file" id="file" accept="image/*">
-                    <input type="submit" class=submit value="Submit">
+                    <input type="submit" class=submit value="Convert">
                 </form>
             </div>
         </div>
