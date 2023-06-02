@@ -5,8 +5,8 @@ from LegofiedImage import LegofiedImage, LEGO_COLORS, BRICKLINK_COLORS, PART_NUM
 
 class Converter:
 
-    def __init__(self, use_lego=True):
-        self.colors:dict[str, str] = LEGO_COLORS if use_lego else BRICKLINK_COLORS
+    def __init__(self):
+        self.colors:dict[str, str] = LEGO_COLORS
 
     def find_closest_color(self, target:str) -> str:
         """ returns key corresponding to closest color to target in self.colors """
@@ -26,7 +26,8 @@ class Converter:
         diff = color1 - color2
         return np.sqrt(np.dot(diff.T, diff))
 
-    def convert(self, path:str, length:int, progress_bar=False, resampling_func=Image.Resampling.BILINEAR) -> LegofiedImage:        
+    def convert(self, path:str, length:int, progress_bar=False, use_lego=True, resampling_func=Image.Resampling.BILINEAR) -> LegofiedImage:
+        self.colors = LEGO_COLORS if use_lego else BRICKLINK_COLORS
         with Image.open(path, mode='r') as image:
             l, h = image.size
             height = int((length/l)*h)
