@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Lego Image Converter</title>
+{% endblock %}
+
+
+{% block body %}
+<div class="content">
+    <h1 class="name">Lego Image Converter</h1>
+    <h2 style="text-align: center">Upload an image to convert it to a Lego mosaic</h2>
+    <div class="main">
+        <div class="image-holder">
+            <img src="{{ url_for('static', filename='images/legofied/legofied-mustafar.png') }}" \
+            alt="Mustafar" class="legofied-image">
+            <img src="{{ url_for('static', filename='images/legofied/legofied-reputation.png') }}" \
+            alt="Reputation" class="legofied-image">
+        </div>
+        <div class="central">
+            <p class="text">
+                Legofied Image Here
+            </p>
+            <br>
+            <div class="submission">
+                <form style="text-align: center;" action="/" method="POST">
+                    <input type="file" name="file" id="file" accept="image/*">
+                    <input type="submit" class=submit value="Submit">
+                </form>
+            </div>
+        </div>
+        <div class="image-holder">
+            <img src="{{ url_for('static', filename='images/legofied/legofied-spiderman.png') }}" \
+            alt="Spiderman" class="legofied-image">
+            <img src="{{ url_for('static', filename='images/legofied/legofied-pokemon-starters-gen4.png') }}" \
+            alt="Pokemon Starters Gen 4" class="legofied-image">
+        </div>
+    </div>
+</div>
+{% endblock %}
