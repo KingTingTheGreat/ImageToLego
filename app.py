@@ -1,18 +1,27 @@
-from flask import Flask, render_template, request, send_file
+import io
+from PIL import Image
+from flask import Flask, render_template, request, send_file, redirect
 from Converter import Converter
 from LegofiedImage import LegofiedImage, LEGO_COLORS, BRICKLINK_COLORS, PART_NUMBERS
-import os
+
+PATH:str = 'working/legofied_image.png'
 
 app = Flask(__name__, static_folder='static')
 
-c = Converter()
+C = Converter()
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        image = c.convert(request.files['image'], int(request.form['length']), True)
-        image.draw()
-        return send_file('static/{}.html'.format(image.name), mimetype='text/html')
+        input_image = request.files['input_image'].read()
+        request.files['input_image'].close()
+        if not input_image:
+            return redirect('/')
+        image:Image = Image.open(io.BytesIO(input_image))
+        length:int = int(request.form['length'])
+        legofied_image:LegofiedImage = C.convert_image(image, length, progress_bar=False)
+        legofied_image.save_image(filename='static/'+PATH)
+        return render_template('index.html', image=PATH)
     return render_template('index.html')
 
 
