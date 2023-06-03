@@ -19,13 +19,23 @@
             alt="Reputation" class="legofied-image">
         </div>
         <div class="central">
+            {% if image %}
+            <img src="{{ url_for('static', filename=image) }}" \
+            alt="Legofied Image" class="legofied-image">
+            {% else %}
             <p class="text">
                 Your Legofied Image Here
             </p>
+            {% endif %}
             <br>
             <div class="submission">
-                <form style="text-align: center;" action="/" method="POST">
-                    <input type="file" name="file" id="file" accept="image/*">
+                <form style="text-align: center;" action="/" method="POST" enctype="multipart/form-data">
+                    <label for="input_image">Upload an image:</label>
+                    <input type="file" name="input_image" id="input_image" accept="image/*">
+                    <br><br>
+                    <label for="length">Length of Lego Mosaic:</label>
+                    <input type="range" min="1" max="160" value="80" class="slider" id="length" name="length">
+                    <span id="length-value">80</span>
                     <input type="submit" class=submit value="Convert">
                 </form>
             </div>
@@ -38,4 +48,12 @@
         </div>
     </div>
 </div>
+<script>
+    const slider = document.getElementById('length');
+    const sliderValue = document.getElementById('length-value');
+    sliderValue.textContent = slider.value;
+    slider.oninput = function() {
+        sliderValue.textContent = this.value;
+    };
+</script>
 {% endblock %}
