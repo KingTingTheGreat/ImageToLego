@@ -12,5 +12,6 @@ pygame==2.4.0
 python-dateutil==2.8.2
 pytz==2023.3
 six==1.16.0
+tqdm==4.65.0
 tzdata==2023.3
 Werkzeug==2.3.4
