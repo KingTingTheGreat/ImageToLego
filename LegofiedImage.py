@@ -1,5 +1,7 @@
-import turtle
+import sys
+import pygame
 import pandas as pd
+from functools import cache
 
 
 LEGO_COLORS:dict[str, str] = {\
@@ -115,6 +117,9 @@ BRICKLINK_COLORS:dict[str, str] = {\
 PART_NUMBERS:dict[str, str] = {\
 }
 
+SIZE = 10
+SPACING = 1
+
 class LegofiedImage:
 
     def __init__(self, image:list[list[str]], lego_colors:dict[str, str], title:str='Legofied Image'):
@@ -124,35 +129,42 @@ class LegofiedImage:
         self.length:int = len(image[0])
         self.height:int = len(image)
 
+    @cache
+    def create_image(self) -> None:
+        try:
+            length, height = self.length, self.height
+            screen_width = length*SIZE + (length-1)*SPACING
+            screen_height = height*SIZE + (height-1)*SPACING
+            screen = pygame.display.set_mode((screen_width, screen_height))
+            pygame.display.set_caption(self.title)
+            screen.fill((0, 0, 0))
+            for i in range(height):
+                for j in range(length):
+                    x = j*(SIZE+SPACING) + SIZE//2 + SPACING
+                    y = i*(SIZE+SPACING) + SIZE//2 + SPACING
+                    pygame.draw.circle(screen, self.image[i][j], (x, y), SIZE//2)
+            pygame.display.update()
+        except Exception as e:
+            print(e)
+            print('Error: could not create image')
+            print(self.image[i][j])
+        return screen
+
     def draw(self) -> None:
-        scr = turtle.Screen()
-        scr.title(self.title)
-        scr.tracer(0)
-        scr.bgcolor("black")
-        # this 10 means each stud is 10 pixels in diameter. that is the default size of a circle created by turtle
-        l = len(self.image[0])
-        h = len(self.image)
-        scr.setup(width=(l) * 10 + l * 2, height=h * 10 + h * 2) 
+        screen = self.create_image()
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    sys.exit()
 
-        stud = turtle.Turtle()
-        stud.speed(0)
-        stud.penup()
-        stud.shape("circle")
-        stud.shapesize(0.5)
-
-        x = -(len(self.image[0]) * 10 + len(self.image[0]))//2 + 2
-        y = (len(self.image) * 10 + len(self.image))//2 - 2
-        stud.goto(x - 11, y)
-
-        for i in range(len(self.image)):
-            for j in range(len(self.image[i])):
-                stud.goto(stud.xcor() + 11, stud.ycor())
-                stud.color(self.image[i][j])
-                stud.stamp()
-
-            stud.goto(x - 11, stud.ycor() - 11)
-        stud.hideturtle()
-        turtle.done()
+    def save_image(self, filename=None) -> None:
+        if filename is None:
+            filename = self.title
+        if not filename.endswith('.png'):
+            filename = filename.split('.')[0] + '.png'
+        screen = self.create_image()
+        pygame.image.save(screen, filename)
 
     def save_to_textfile(self, filename=None) -> None:
         if filename is None:
