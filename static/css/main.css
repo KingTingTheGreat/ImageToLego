@@ -1,17 +1,36 @@
-* {
+body {
     color: purple;
-    background-color: #D01012;
+    background-color: lightblue;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 @font-face {
     font-family: "LegoFont";
-    src: url("static/fonts/Legothick.ttf") format("truetype");
+    src: url("../fonts/Legothick.ttf") format("truetype");
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
 }
 
 .name {
     font-family: "LegoFont", serif;
     font-size: 75px;
     text-align: center;
+    background-color: #D01012;
+    width: 35vw;
+    height: auto;
+    color: white;
+    border: 3px solid black;
+    /* text-shadow: -2px -2px 0 yellow, 2px -2px 0 yellow, -2px 2px 0 yellow, 2px 2px 0 yellow; */
+    -webkit-text-stroke: 6px yellow, 4px black;
 }
 
 .legofied-image {
@@ -21,7 +40,7 @@
 
 .submit {
     background-color: lightgreen;
-    color: white;
+    color: black;
     border-radius: 15px;
 }
 
@@ -54,8 +73,8 @@
     background-color: white;
     color: black;
     padding: 100px;
-    width: 100px;
-    height: 100px;
+    width: 10vw;
+    height: 10vw;
     border: 5px solid black;
     font-size: 20px;
     display: flex;
