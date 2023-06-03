@@ -19,3 +19,4 @@ def index():
 
 if __name__ == '__main__':
     app.run(debug=True)
+    # app.run(debugpip=False, host='0.0.0.0')
