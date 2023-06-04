@@ -1,6 +1,7 @@
 import numpy as np
 from PIL import Image
 from tqdm import tqdm
+from pillow_heif import register_heif_opener
 from LegofiedImage import LegofiedImage, LEGO_COLORS, BRICKLINK_COLORS, PART_NUMBERS
 
 class Converter:
