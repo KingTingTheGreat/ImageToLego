@@ -21,7 +21,8 @@
         <div class="central">
             {% if image_data %}
             <img src="data:image/png;base64,{{image_data}}" \
-            alt="Legofied Image" class="legofied-image">
+            alt="Legofied Image" class="display-image" id="display-image">
+            <button onclick="rotateImage()">Rotate 90°</button>
             {% else %}
             <p class="text">
                 Your Legofied Image Here
@@ -48,12 +49,5 @@
         </div>
     </div>
 </div>
-<script>
-    const slider = document.getElementById('length');
-    const sliderValue = document.getElementById('length-value');
-    sliderValue.textContent = slider.value;
-    slider.oninput = function() {
-        sliderValue.textContent = this.value;
-    };
-</script>
+<script src="{{url_for('static', filename='javascript/script.js')}}"></script>
 {% endblock %}
