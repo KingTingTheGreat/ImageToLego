@@ -26,6 +26,7 @@ body {
     text-align: center;
     background-color: #D01012;
     width: 35vw;
+    min-width: min-content;
     height: auto;
     color: white;
     border: 3px solid black;
@@ -79,4 +80,8 @@ body {
     font-size: 20px;
     display: flex;
     flex-direction: column;
+}
+
+.display-image {
+    width: 25vw;
 }
