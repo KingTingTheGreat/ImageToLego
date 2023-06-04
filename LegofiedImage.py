@@ -128,14 +128,14 @@ class LegofiedImage:
         self.title:str = title
         self.length:int = len(image[0])
         self.height:int = len(image)
+        self.screen_length:int = self.length*SIZE + (self.length-1)*SPACING
+        self.screen_height:int = self.height*SIZE + (self.height-1)*SPACING
 
     @cache
     def create_image(self) -> None:
         try:
             length, height = self.length, self.height
-            screen_width = length*SIZE + (length-1)*SPACING
-            screen_height = height*SIZE + (height-1)*SPACING
-            screen = pygame.display.set_mode((screen_width, screen_height))
+            screen = pygame.display.set_mode((self.screen_length, self.screen_height))
             pygame.display.set_caption(self.title)
             screen.fill((0, 0, 0))
             for i in range(height):
@@ -157,6 +157,10 @@ class LegofiedImage:
                 if event.type == pygame.QUIT:
                     pygame.quit()
                     sys.exit()
+
+    def image_tostring(self) -> bytes:
+        screen = self.create_image()
+        return pygame.image.tostring(screen, 'RGB')
 
     def save_image(self, filename=None) -> None:
         if filename is None:

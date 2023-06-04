@@ -19,8 +19,8 @@
             alt="Reputation" class="legofied-image">
         </div>
         <div class="central">
-            {% if image %}
-            <img src="{{ url_for('static', filename=image) }}" \
+            {% if image_data %}
+            <img src="data:image/png;base64,{{image_data}}" \
             alt="Legofied Image" class="legofied-image">
             {% else %}
             <p class="text">
