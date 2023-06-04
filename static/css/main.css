@@ -1,5 +1,6 @@
 body {
-    color: purple;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
     background-color: lightblue;
     display: flex;
     flex-direction: column;
@@ -9,6 +10,10 @@ body {
 @font-face {
     font-family: "LegoFont";
     src: url("../fonts/Legothick.ttf") format("truetype");
+}
+
+#input_image {
+    color: blue;
 }
 
 .header {
@@ -79,7 +84,8 @@ body {
     border: 5px solid black;
     font-size: 20px;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .display-image {
