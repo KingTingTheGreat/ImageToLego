@@ -5,7 +5,7 @@ from functools import cache
 
 
 LEGO_COLORS:dict[str, str] = {\
-    '#4b9f4a': 'BrightGreen', 
+    '#4B9F4A': 'BrightGreen', 
     '#36AEBF': 'MediumAzur', # medium azure
     '#923978': 'BrightReddishViolet', # magenta
     '#352100': 'DarkBrown', 
@@ -40,7 +40,9 @@ LEGO_COLORS:dict[str, str] = {\
     '#6C6E68': 'DarkStoneGrey', # dark bluish gray
     '#582A12': 'ReddishBrown', 
     '#720E0F': 'DarkRed', 
-    '#A0A5A9': 'MediumStoneGrey'} # light bluish gray
+    '#A0A5A9': 'MediumStoneGrey', # light bluish gray
+    '#D9D9D9': 'WhiteGlow' # glow in dark white
+}
         
 BRICKLINK_COLORS:dict[str, str] = {\
     '#05131D': 'Black', 
@@ -112,9 +114,56 @@ BRICKLINK_COLORS:dict[str, str] = {\
     '#68BCC5': 'GlitterTransLightBlue', 
     '#DBAC34': 'MetallicGold', 
     '#D4D5C9': 'GlowInDarkOpaque', 
-    '#D9D9D9': 'GlowInDarkWhite'}
+    '#D9D9D9': 'GlowInDarkWhite'
+}
 
 PART_NUMBERS:dict[str, str] = {\
+    '#352100': '6322813', # dark brown
+    '#6074A1': '6322842', # sand blue
+    '#B3D7D1': '6322818', # aqua
+    '#FE8A18': '6284582', # bright orange, orange
+    '#FF698F': '6311436', # coral, vibrant coral
+    '#F8BB3D': '6322822', # flame yellowish orange, bright light orange
+    '#9B9A5A': '6284595', # olive green
+    '#BBE90B': '6284583', # bright yellowish green, lime
+    '#720E0F': '6284585', # dark red
+    '#68BCC5': '6299918', # glitter trans light blue
+    '#FFFFFF': '6284572', # white, glitter trans clear
+    '#9FC3E9': '6322823', # light royal blue, bright light blue
+    '#008F9B': '6311437', # bright bluish green, dark turquoise
+    '#C870A0': '6322821', # bright purple, dark pink
+    '#0A3463': '6284584', # earth blue, dark blue
+    '#582A12': '6284586', # reddish brown
+    '#958A73': '6322841', # sand yellow, dark tan
+    '#E4ADC8': '6284587', # light purple, trans pink
+    '#D09168': '6343472', # nougat
+    '#AA7F2E': '6238891', # warm gold, pearl gold
+    '#078BC9': '6322824', # dark azur, dark azure
+    '#6C6E68': '6284596', # dark stone grey, dark bluish gray
+    '#D9D9D9': '6284592', # white glow, glow in dark white
+    '#36AEBF': '6322819', # medium azur, medium azure
+    '#F5CD2F': '6274740', # trans yellow
+    '#DF6695': '6325421	', # glitter trans dark pink
+    '#A0A5A9': '6284071', # medium stone grey, light bluish gray
+    '#AA7D55': '6284589', # medium nougat
+    '#898788': '6238890', # silver metallic, flat silver
+    '#DFEEA5': '6284598', # spring yellowish green, yellowish green
+    '#923978': '6322816', # bright reddish violet, magenta
+    '#A95500': '6322840', # dark orange
+    '#FFF03A': '6343806', # cool yellow, bright light yellow
+    '#5A93DB': '6284602', # medium blue
+    '#E1D5ED': '6322820', # lavender
+    '#C91A09': '6284574', # bright red, trans red
+    '#0055BF': '6284575', # bright blue, blue
+    '#184632': '6396247', # dark green
+    '#AC78BA': '6346374', # medium lavender
+    '#AEEFEC': '6274739', # trans light blue, trans blue opal
+    '#E4CD9E': '6284573', # brick yellow, tan
+    '#F6D7B3': '6315196', # light nougat
+    '#05131D': '6284070', # black
+    '#F08F1C': '6274747', # trans orange
+    '#4B9F4A': '6353793', # bright green
+    '#F2CD37': '6284577' # bright yellow, yellow
 }
 
 SIZE = 10
