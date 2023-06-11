@@ -242,8 +242,6 @@ class LegofiedImage:
             path = self.title
         if not path.endswith('.xlsx'):
             path += '.xlsx'
-        if os.path.exists(path):
-            os.remove(path)
         quantities = {}
         for i in range(len(self.image)):
             for j in range(len(self.image[i])):
