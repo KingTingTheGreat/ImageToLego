@@ -52,7 +52,6 @@ class Converter:
         self.progress_bar = progress_bar
         with Image.open(path, mode='r') as image:
             results = self._convert(image, length, resampling_func=resampling_func)
-
         return LegofiedImage(results, self.colors, path.split('/')[-1])
 
     def convert_image(self, image:Image, length:int, progress_bar=False, use_lego=True, resampling_func=Image.Resampling.BILINEAR) -> LegofiedImage:

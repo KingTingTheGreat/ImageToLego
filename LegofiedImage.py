@@ -1,7 +1,7 @@
 import sys
 import pygame
-import pandas as pd
 from functools import cache
+from openpyxl import Workbook
 
 
 LEGO_COLORS:dict[str, str] = {\
@@ -171,7 +171,7 @@ SPACING = 1
 
 class LegofiedImage:
 
-    def __init__(self, image:list[list[str]], lego_colors:dict[str, str], title:str='Legofied Image'):
+    def __init__(self, image:list[list[str]], lego_colors:dict[str, str], title:str='LegofiedImage'):
         self.image:list[list[str]] = image
         self.lego_colors:dict[str, str] = lego_colors
         self.title:str = title
@@ -236,16 +236,19 @@ class LegofiedImage:
                     f.write('],\n [')
             f.write(']]')
     
-    def save_to_csv(self, filename=None) -> None:
+    def save_parts_list(self, filename=None) -> None:
         if filename is None:
             filename = self.title
-        if not filename.endswith('.csv'):
-            filename += '.csv'
+        if not filename.endswith('.xlsx'):
+            filename += '.xlsx'
         quantities = {}
         for i in range(len(self.image)):
             for j in range(len(self.image[i])):
                 quantities[self.image[i][j]] = quantities.get(self.image[i][j], 0) + 1
-        df = pd.DataFrame(quantities.items(), columns=['Color', 'Quantity'])
-        df.to_csv(filename, index=False, header=False)
+        wb = Workbook()
+        ws = wb.active
+        for color in quantities:
+            ws.append([PART_NUMBERS[color], quantities[color], color])
+        wb.save(filename)
 
 
