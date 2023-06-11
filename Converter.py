@@ -42,6 +42,8 @@ class Converter:
                 pix = im.getpixel((j, i))
                 if type(pix) == int:
                     pix = (pix, pix, pix)
+                if len(pix) > 3:
+                    pix = pix[:3]
                 row.append(self.find_closest_color('#%02x%02x%02x' % pix))
             results.append(row)
 
