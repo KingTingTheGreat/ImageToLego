@@ -2,7 +2,7 @@ import os
 import sys
 import pygame
 from functools import cache
-from openpyxl import Workbook
+from openpyxl import Workbook, load_workbook
 
 
 LEGO_COLORS:dict[str, str] = {\
@@ -238,18 +238,27 @@ class LegofiedImage:
             f.write(']]')
     
     def save_parts_list(self, path=None) -> None:
+        # set path
         if path is None:
             path = self.title
         if not path.endswith('.xlsx'):
             path += '.xlsx'
+
+        # clear file
         if os.path.exists(path):
-            os.remove(path)
+            wb = load_workbook(path)
+            ws = wb.active
+            ws.delete_rows(1, ws.max_row)
+
+        # write heading
+        wb = Workbook()
+        ws = wb.active
+        ws.append(['Part Number', 'Quantity', 'Color', 'Color Name'])
+        # write data
         quantities = {}
         for i in range(len(self.image)):
             for j in range(len(self.image[i])):
                 quantities[self.image[i][j]] = quantities.get(self.image[i][j], 0) + 1
-        wb = Workbook()
-        ws = wb.active
         for color in quantities:
             ws.append([PART_NUMBERS[color], quantities[color], color, self.colors[color]])
         wb.save(path)
