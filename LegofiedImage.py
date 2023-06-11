@@ -236,11 +236,11 @@ class LegofiedImage:
                     f.write('],\n [')
             f.write(']]')
     
-    def save_parts_list(self, filename=None) -> None:
-        if filename is None:
-            filename = self.title
-        if not filename.endswith('.xlsx'):
-            filename += '.xlsx'
+    def save_parts_list(self, path=None) -> None:
+        if path is None:
+            path = self.title
+        if not path.endswith('.xlsx'):
+            path += '.xlsx'
         quantities = {}
         for i in range(len(self.image)):
             for j in range(len(self.image[i])):
@@ -249,6 +249,6 @@ class LegofiedImage:
         ws = wb.active
         for color in quantities:
             ws.append([PART_NUMBERS[color], quantities[color], color, self.colors[color]])
-        wb.save(filename)
+        wb.save(path)
 
 
