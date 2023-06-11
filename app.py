@@ -20,6 +20,10 @@ def index():
         length:int = int(request.form['length'])
         legofied = C.convert_image(image, length, progress_bar=False)
 
+        # save parts list
+        legofied.save_parts_list()
+
+        # send image to client
         image = Image.frombytes('RGB', (legofied.screen_length, legofied.screen_height), legofied.image_tostring())
         image_stream = io.BytesIO()
         image.save(image_stream, 'PNG')
@@ -30,8 +34,11 @@ def index():
         return render_template('index.html', image_data=image_data)
     return render_template('index.html')
 
+@app.route('/download_parts_list')
+def download_parts_list():
+    return send_file('LegofiedImage.xlsx', as_attachment=True)
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
-    # app.run(debugpip=False, host='0.0.0.0')
+    # app.run(debug=True)
+    app.run(debug=False, host='0.0.0.0')

@@ -25,6 +25,9 @@
             <img src="data:image/png;base64,{{image_data}}" \
             alt="Legofied Image" class="display-image" id="display-image">
             <button onclick="rotateImage()">Rotate 90°</button>
+            <a href="{{ url_for('download_parts_list') }}">
+                <button>Download Parts list</button>
+            </a>
             {% else %}
             <p class="text">
                 Your Legofied Image Here
