@@ -171,9 +171,9 @@ SPACING = 1
 
 class LegofiedImage:
 
-    def __init__(self, image:list[list[str]], lego_colors:dict[str, str], title:str='LegofiedImage'):
+    def __init__(self, image:list[list[str]], colors:dict[str, str], title:str='LegofiedImage'):
         self.image:list[list[str]] = image
-        self.lego_colors:dict[str, str] = lego_colors
+        self.colors:dict[str, str] = colors
         self.title:str = title
         self.length:int = len(image[0])
         self.height:int = len(image)
@@ -248,7 +248,7 @@ class LegofiedImage:
         wb = Workbook()
         ws = wb.active
         for color in quantities:
-            ws.append([PART_NUMBERS[color], quantities[color], color])
+            ws.append([PART_NUMBERS[color], quantities[color], color, self.colors[color]])
         wb.save(filename)
 
 
