@@ -21,7 +21,7 @@ def index():
         legofied = C.convert_image(image, length, progress_bar=False)
 
         # save parts list
-        legofied.save_parts_list(path='tmp/LegofiedImage.xlsx')
+        legofied.save_parts_list(path='./tmp/LegofiedImage.xlsx')
 
         # send image to client
         image = Image.frombytes('RGB', (legofied.screen_length, legofied.screen_height), legofied.image_tostring())
