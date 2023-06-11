@@ -38,7 +38,8 @@ def index():
 
 @app.route('/download_parts_list')
 def download_parts_list():
-    return send_file('tmp/LegofiedImage.xlsx', as_attachment=True)
+    # return send_file('./tmp/LegofiedImage.xlsx', as_attachment=True)  # works on local
+    return send_file('/tmp/LegofiedImage.xlsx', as_attachment=True)  # works on vercel    
 
 
 if __name__ == '__main__':
