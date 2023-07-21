@@ -38,8 +38,9 @@ body {
     font-size: 100px;
     text-align: center;
     background-color: #D01012;
-    width: fit-content;
-    min-width: max-content;
+    width: 100px;
+    /* width: auto; */
+    /* min-width: fit-content; */
     height: auto;
     color: white;
     border: 3px solid black;
