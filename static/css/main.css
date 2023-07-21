@@ -38,8 +38,8 @@ body {
     font-size: 100px;
     text-align: center;
     background-color: #D01012;
-    /* width: 1000px; */
-    width: auto;
+    width: 1020px;
+    /* width: auto; */
     min-width: max-content;
     height: auto;
     color: white;
