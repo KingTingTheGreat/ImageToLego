@@ -7,4 +7,4 @@ This is an example of what a user would see when using the website:
 
 ## Usage
 
-Visit [this website](image-to-lego.vercel.app) and submit any image you'd like to convert. The website will then show you a LEGO mosaic of your image and you can download the spreadsheet of parts if you'd like to build it in real life!
+Visit [this website](image-to-lego.vercel.app) and submit an image you'd like to convert. The website will then show you a LEGO mosaic of your image and you can download the spreadsheet of parts if you'd like to build it in real life!
