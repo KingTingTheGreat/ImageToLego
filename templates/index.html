@@ -1,68 +1,73 @@
 {% extends 'base.html' %} {% block head %}
 <title>Lego Image Converter</title>
-
 {% endblock %} {% block body %}
-<div id="page-wrapper:">
-	<div class="header">
-		<h1 class="name">LEGO IMAGE CONVERTER</h1>
-	</div>
-	<div class="label">
-		<h2>Upload an image to convert it to a Lego mosaic</h2>
-	</div>
-	<div class="main">
-		<div class="image-holder">
-			<img
-				src="{{ url_for('static', filename='images/legofied/legofied-mustafar.png') }}"
-				\
-				alt="Legofied image of the fight between Obi-Wan and Anakin on Mustafar"
-				class="legofied-image" />
-			<img
-				src="{{ url_for('static', filename='images/legofied/legofied-reputation.png') }}"
-				\
-				alt="Legofied cover of Taylor Swift's Reputation album"
-				class="legofied-image" />
+<div id="page-wrapper">
+	<header>
+		<div class="header">
+			<h1 class="name">LEGO IMAGE CONVERTER</h1>
+			<h2>Upload an image to convert it to a Lego mosaic</h2>
 		</div>
-		<div class="central">
-			{% if image_data %}
-			<img
-				src="data:image/png;base64,{{image_data}}"
-				\
-				alt="Your Legofied Image"
-				class="display-image"
-				id="display-image" />
-			<button onclick="rotateImage()">Rotate 90°</button>
-			<a href="{{ url_for('download_parts_list') }}">
-				<button>Download Parts list</button>
-			</a>
-			{% else %}
-			<p class="text">Input Your Legofied Image Here</p>
-			{% endif %}
-			<br />
-			<div class="submission">
-				<form style="text-align: center" action="/" method="POST" enctype="multipart/form-data">
-					<label for="input_image">Upload an image:</label>
-					<input type="file" name="input_image" id="input_image" accept="image/*" />
-					<br /><br />
-					<label for="length">Length of Lego Mosaic:</label>
-					<input type="range" min="1" max="160" value="80" class="slider" id="length" name="length" />
-					<span id="length-value">80</span>
-					<input type="submit" class="submit" value="Convert" />
-				</form>
+	</header>
+	<!-- <div class="label">
+		<h2>Upload an image to convert it to a Lego mosaic</h2>
+	</div> -->
+	<main>
+		<div id="container">
+			<div class="image-column">
+				<img
+					src="{{ url_for('static', filename='images/legofied/legofied-mustafar.png') }}"
+					\
+					alt="Legofied image of the fight between Obi-Wan and Anakin on Mustafar"
+					class="legofied-image" />
+				<img
+					src="{{ url_for('static', filename='images/legofied/legofied-reputation.png') }}"
+					\
+					alt="Legofied cover of Taylor Swift's Reputation album"
+					class="legofied-image" />
+			</div>
+			<div class="central">
+				{% if image_data %}
+				<img
+					src="data:image/png;base64,{{image_data}}"
+					\
+					alt="Your Legofied Image"
+					class="display-image"
+					id="display-image" />
+				<button onclick="rotateImage()">Rotate 90°</button>
+				<a href="{{ url_for('download_parts_list') }}">
+					<!-- <button>Download Parts list</button> -->
+					Download Partslist
+				</a>
+				{% else %}
+				<p class="text">Input Your Legofied Image Here</p>
+				{% endif %}
+				<br />
+				<div class="submission">
+					<form style="text-align: center" action="/" method="POST" enctype="multipart/form-data">
+						<label for="input_image">Upload an image:</label>
+						<input type="file" name="input_image" id="input_image" accept="image/*" />
+						<br /><br />
+						<label for="length">Length of Lego Mosaic:</label>
+						<input type="range" min="1" max="160" value="80" class="slider" id="length" name="length" />
+						<span id="length-value">80</span>
+						<input type="submit" class="submit" value="Convert" />
+					</form>
+				</div>
+			</div>
+			<div class="image-column">
+				<img
+					src="{{ url_for('static', filename='images/legofied/legofied-spiderman.png') }}"
+					\
+					alt="Legofied image of Spiderman climbing"
+					class="legofied-image" />
+				<img
+					src="{{ url_for('static', filename='images/legofied/legofied-pokemon-starters-gen4.png') }}"
+					\
+					alt="Legofied image of the Gen 4 Pokemon Starters"
+					class="legofied-image" />
 			</div>
 		</div>
-		<div class="image-holder">
-			<img
-				src="{{ url_for('static', filename='images/legofied/legofied-spiderman.png') }}"
-				\
-				alt="Legofied image of Spiderman climbing"
-				class="legofied-image" />
-			<img
-				src="{{ url_for('static', filename='images/legofied/legofied-pokemon-starters-gen4.png') }}"
-				\
-				alt="Legofied image of the Gen 4 Pokemon Starters"
-				class="legofied-image" />
-		</div>
-	</div>
+	</main>
 </div>
 {% endblock %} {% block scripts %}
 <script src="{{url_for('static', filename='javascript/script.js')}}"></script>

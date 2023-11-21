@@ -1,14 +1,17 @@
 * {
+    margin: 0;
     box-sizing: border-box;
 }
 
-body {
+#page-wrapper {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: black;
-    background-color: lightblue;
+    background-color: beige;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    max-width: 100vw;
+    min-height: 100vh;
 }
 
 @font-face {
@@ -25,8 +28,8 @@ body {
     flex-direction: row;
     justify-content: center;
     border: 0px;
-    margin: 10px;
-    padding: 10px;
+    margin: 10vw;
+    /* padding: 10vw; */
 }
 
 .label {
@@ -104,5 +107,7 @@ body {
 }
 
 .display-image {
-    width: 25vw;
+    /* width: 25vw; */
+    max-width: 100%;
+    max-height: 100%;
 }

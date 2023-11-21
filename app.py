@@ -9,32 +9,30 @@ app = Flask(__name__, static_folder='static')
 
 C = Converter()
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['POST'])
 def index():
-    if request.method == 'POST':
-        input_image = request.files['input_image'].read()
-        request.files['input_image'].close()
-        if not input_image:
-            return redirect('/')
-        image:Image = Image.open(io.BytesIO(input_image))
-        length:int = int(request.form['length'])
-        legofied = C.convert_image(image, length, progress_bar=False)
+    input_image = request.files['input_image'].read()
+    request.files['input_image'].close()
+    if not input_image:
+        return redirect('/')
+    image:Image = Image.open(io.BytesIO(input_image))
+    length:int = int(request.form['length'])
+    legofied = C.convert_image(image, length, progress_bar=False)
 
-        # save parts list
-        # legofied.save_parts_list(path='./tmp/LegofiedImage.xlsx')  # works on local
-        legofied.save_parts_list(path='/tmp/LegofiedImage.xlsx')  # works on vercel
-
-
-        # send image to client
-        image = Image.frombytes('RGB', (legofied.screen_length, legofied.screen_height), legofied.image_tostring())
-        image_stream = io.BytesIO()
-        image.save(image_stream, 'PNG')
-        image_stream.seek(0)
-        image_data = base64.b64encode(image_stream.getvalue()).decode('utf-8')
+    # save parts list
+    # legofied.save_parts_list(path='./tmp/LegofiedImage.xlsx')  # works on local
+    legofied.save_parts_list(path='/tmp/LegofiedImage.xlsx')  # works on vercel
 
 
-        return render_template('index.html', image_data=image_data)
-    return render_template('index.html')
+    # send image to client
+    image = Image.frombytes('RGB', (legofied.screen_length, legofied.screen_height), legofied.image_tostring())
+    image_stream = io.BytesIO()
+    image.save(image_stream, 'PNG')
+    image_stream.seek(0)
+    image_data = base64.b64encode(image_stream.getvalue()).decode('utf-8')
+
+
+    return render_template('index.html', image_data=image_data)
 
 @app.route('/download_parts_list')
 def download_parts_list():
