@@ -22,8 +22,8 @@ def index():
         legofied = C.convert_image(image, length, progress_bar=False)
 
         # save parts list
-        legofied.save_parts_list(path="./tmp/LegofiedImage.xlsx")  # works on local
-        # legofied.save_parts_list(path='/tmp/LegofiedImage.xlsx')  # works on vercel
+        # legofied.save_parts_list(path="./tmp/LegofiedImage.xlsx")  # works on local
+        legofied.save_parts_list(path="/tmp/LegofiedImage.xlsx")  # works on vercel
 
         # send image to client
         image = Image.frombytes(
