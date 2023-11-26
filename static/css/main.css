@@ -1,108 +1,126 @@
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: black;
-    background-color: lightblue;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	color: black;
+	background-color: #fffff2;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
 }
 
 @font-face {
-    font-family: "LegoFont";
-    src: url("../fonts/Legothick.ttf") format("truetype");
+	font-family: "LegoFont";
+	src: url("../fonts/Legothick.ttf") format("truetype");
+}
+
+a {
+	text-decoration: none;
+	color: white;
+	font-size: 20px;
+	margin: 10px;
 }
 
 #input_image {
-    color: blue;
+	color: blue;
 }
 
-.header {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    border: 0px;
-    margin: 10px;
-    padding: 10px;
+header {
+	display: flex;
+	justify-content: space-between;
+	border: 0px;
+	background-color: #003366;
+	width: 100vw;
+	align-items: center;
 }
 
 .label {
-    text-align: center;
+	text-align: center;
+	margin: 10px;
 }
 
 .name {
-    font-family: "LegoFont", serif;
-    font-size: 100px;
-    text-align: center;
-    background-color: #D01012;
-    width: 1020px;
-    /* width: auto; */
-    min-width: max-content;
-    height: auto;
-    color: white;
-    border: 3px solid black;
-    /* text-shadow: -2px -2px 0 yellow, 2px -2px 0 yellow, -2px 2px 0 yellow, 2px 2px 0 yellow; */
-    -webkit-text-stroke: 6px yellow, 4px black;
+	display: flex;
+	justify-content: start;
+	font-family: "LegoFont", serif;
+	font-size: calc(1.5vw + 1.5vh + 1.5vmin);
+	text-align: center;
+	width: 44%;
+	color: white;
+	margin: 10px;
+}
+
+.about {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: "LegoFont", serif;
+	font-size: calc(1.5vw + 1.5vh + 1.5vmin);
+	text-align: center;
+	width: 44%;
+	color: white;
+	margin: 10px;
 }
 
 .legofied-image {
-    max-width: 20vw;
-    margin: 10px
+	max-width: 20vw;
+	margin: 10px;
 }
 
 .submit {
-    background-color: lightgreen;
-    color: black;
-    border-radius: 15px;
+	background-color: lightgreen;
+	color: black;
+	border-radius: 15px;
+	padding: 5px;
 }
 
 .content {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .image-holder {
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 @media (max-width: 500px) {
-    .image-holder {
-        display: none;
-    }
+	.image-holder {
+		display: none;
+	}
 }
 
 .main {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	align-items: center;
 }
 
 .central {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: end;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: end;
 }
 
 .text {
-    background-color: white;
-    color: black;
-    padding: 100px;
-    width: 20vw;
-    height: 20vw;
-    border: 5px solid black;
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-    text-align: center;
+	background-color: white;
+	color: black;
+	padding: 100px;
+	width: 20vw;
+	height: 20vw;
+	border: 5px solid black;
+	font-size: 20px;
+	display: flex;
+	align-items: center;
+	text-align: center;
 }
 
 .display-image {
-    width: 25vw;
+	width: 25vw;
 }

@@ -7,23 +7,26 @@
 
 {% block body %}
 <div class="content">
-    <div class="header">
+    <header>
         <h1 class="name">LEGO IMAGE CONVERTER</h1>
-    </div>
+        <div class="about">
+            <a href="https://github.com/KingTingTheGreat/ImageToLego" target="_blank">About</a>
+        </div>
+    </header>
     <div class="label">
         <h2>Upload an image to convert it to a Lego mosaic</h2>
     </div>
     <div class="main">
         <div class="image-holder">
-            <img src="{{ url_for('static', filename='images/legofied/legofied-mustafar.png') }}" \
-            alt="Mustafar" class="legofied-image">
-            <img src="{{ url_for('static', filename='images/legofied/legofied-reputation.png') }}" \
-            alt="Reputation" class="legofied-image">
+            <img src="{{ url_for('static', filename='images/legofied/legofied-mustafar.png') }}" \ alt="Mustafar"
+                class="legofied-image">
+            <img src="{{ url_for('static', filename='images/legofied/legofied-reputation.png') }}" \ alt="Reputation"
+                class="legofied-image">
         </div>
         <div class="central">
             {% if image_data %}
-            <img src="data:image/png;base64,{{image_data}}" \
-            alt="Legofied Image" class="display-image" id="display-image">
+            <img src="data:image/png;base64,{{image_data}}" \ alt="Legofied Image" class="display-image"
+                id="display-image">
             <button onclick="rotateImage()">Rotate 90°</button>
             <a href="{{ url_for('download_parts_list') }}">
                 <button>Download Parts list</button>
@@ -47,10 +50,10 @@
             </div>
         </div>
         <div class="image-holder">
-            <img src="{{ url_for('static', filename='images/legofied/legofied-spiderman.png') }}" \
-            alt="Spiderman" class="legofied-image">
+            <img src="{{ url_for('static', filename='images/legofied/legofied-spiderman.png') }}" \ alt="Spiderman"
+                class="legofied-image">
             <img src="{{ url_for('static', filename='images/legofied/legofied-pokemon-starters-gen4.png') }}" \
-            alt="Pokemon Starters Gen 4" class="legofied-image">
+                alt="Pokemon Starters Gen 4" class="legofied-image">
         </div>
     </div>
 </div>
