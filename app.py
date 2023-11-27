@@ -32,7 +32,7 @@ def index():
             legofied.image_tostring(),
         )
         image_stream = io.BytesIO()
-        image.save(image_stream, "PNG")
+        image.save(image_stream, "webp")
         image_stream.seek(0)
         image_data = base64.b64encode(image_stream.getvalue()).decode("utf-8")
 

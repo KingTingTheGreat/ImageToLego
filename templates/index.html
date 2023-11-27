@@ -18,14 +18,14 @@
     </div>
     <div class="main">
         <div class="image-holder">
-            <img src="{{ url_for('static', filename='images/legofied/legofied-mustafar.png') }}" \ alt="Mustafar"
+            <img src="{{ url_for('static', filename='images/legofied/legofied-mustafar.webp') }}" alt="Mustafar"
                 class="legofied-image">
-            <img src="{{ url_for('static', filename='images/legofied/legofied-reputation.png') }}" \ alt="Reputation"
+            <img src="{{ url_for('static', filename='images/legofied/legofied-reputation.webp') }}" alt="Reputation"
                 class="legofied-image">
         </div>
         <div class="central">
             {% if image_data %}
-            <img src="data:image/png;base64,{{image_data}}" \ alt="Legofied Image" class="display-image"
+            <img src="data:image/webp;base64,{{image_data}}" \ alt="Legofied Image" class="display-image"
                 id="display-image">
             <button onclick="rotateImage()">Rotate 90°</button>
             <a href="{{ url_for('download_parts_list') }}">
@@ -50,9 +50,9 @@
             </div>
         </div>
         <div class="image-holder">
-            <img src="{{ url_for('static', filename='images/legofied/legofied-spiderman.png') }}" \ alt="Spiderman"
+            <img src="{{ url_for('static', filename='images/legofied/legofied-spiderman.webp') }}" alt="Spiderman"
                 class="legofied-image">
-            <img src="{{ url_for('static', filename='images/legofied/legofied-pokemon-starters-gen4.png') }}" \
+            <img src="{{ url_for('static', filename='images/legofied/legofied-pokemon-starters-gen4.webp') }}"
                 alt="Pokemon Starters Gen 4" class="legofied-image">
         </div>
     </div>
