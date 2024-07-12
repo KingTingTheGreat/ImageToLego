@@ -17,13 +17,13 @@ def index():
         request.files["input_image"].close()
         if not input_image:
             return redirect("/")
-        image: Image = Image.open(io.BytesIO(input_image))
+        image: Image.Image = Image.open(io.BytesIO(input_image))
         length: int = int(request.form["length"])
         legofied = C.convert_image(image, length, progress_bar=False)
 
         # save parts list
-        legofied.save_parts_list(path="./tmp/LegofiedImage.xlsx")  # works on local
-        # legofied.save_parts_list(path="/tmp/LegofiedImage.xlsx")  # works on vercel
+        # legofied.save_parts_list(path="./tmp/LegofiedImage.xlsx")  # works on local
+        legofied.save_parts_list(path="/tmp/LegofiedImage.xlsx")  # works on vercel
 
         # send image to client
         image = Image.frombytes(
