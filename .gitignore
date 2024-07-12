@@ -4,3 +4,7 @@
 /__pycache__
 /example-images
 /env
+/Include
+/Lib
+/Scripts
+pyvenv.cfg
