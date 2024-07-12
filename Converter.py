@@ -24,9 +24,9 @@ class Converter:
 
     def color_distance(self, color1: str, color2: str) -> float:
         """returns the euclidean distance between two hexcode colors"""
-        color1 = np.array([int(color1[i : i + 2], 16) for i in range(1, 6, 2)])
-        color2 = np.array([int(color2[i : i + 2], 16) for i in range(1, 6, 2)])
-        diff = color1 - color2
+        c1 = np.array([int(color1[i : i + 2], 16) for i in range(1, 6, 2)])
+        c2 = np.array([int(color2[i : i + 2], 16) for i in range(1, 6, 2)])
+        diff = c1 - c2
         return np.sqrt(np.dot(diff.T, diff))
 
     def _convert(
@@ -69,7 +69,7 @@ class Converter:
 
     def convert_image(
         self,
-        image: Image,
+        image: Image.Image,
         length: int,
         progress_bar=False,
         use_lego=True,
